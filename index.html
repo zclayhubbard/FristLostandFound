@@ -10,6 +10,8 @@
 <body>
     
     <div class = 'container-fluid'>
+        
+        <!--start navbar -->
         <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
             <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
             <div class='navbar-nav'>
@@ -17,10 +19,23 @@
                 <a class = 'nav-item nav-link' href = 'makeRequest.html'><h3>Make a Request</h3></a>
                 <a class = 'nav-item nav-link' href = 'logItem.html'><h3>Log an Item</h3></a>
             </div>
-        
         </div>    
+        <!--end navbar-->
     
-    
+        <div>
+            <form>
+                <select name = "Category" class = "form-control">
+                    <option value = "Tech / Tech Accessories"></option>
+                    <option value = "Apparel"></option>
+                    <option value = "Books / School Supplies"></option>
+                    <option value = "Other"></option>
+                </select>    
+                
+                <input name = "searchBar" type = "text" placeholder = "Search" class = "form-control">
+                
+            </form>
+        </div>
+        
     
     </div>
 
