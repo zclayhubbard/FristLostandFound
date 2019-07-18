@@ -1,6 +1,5 @@
 body {
     background-color: #e9eeef
-
 }
 
 .container-fluid{
@@ -9,4 +8,8 @@ body {
 
 .navbar {
     background-color: #ff8f00
+}
+
+.text-center {
+    text-align: center
 }

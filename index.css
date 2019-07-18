@@ -1,0 +1,10 @@
+#choose-category {
+    float:left
+
+}
+
+#submit-search {
+    float:right;
+    margin-top: 2%;
+    border: 1.5px solid white;
+}
