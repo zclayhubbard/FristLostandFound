@@ -5,6 +5,7 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href= "gen.css">
+    <link rel = "stylesheet" type = "text/css" href= "index.css">
 </head>
 
 <body>
@@ -22,20 +23,29 @@
         </div>    
         <!--end navbar-->
     
-        <div>
-            <form>
-                <select name = "Category" class = "form-control">
-                    <option value = "Tech / Tech Accessories"></option>
-                    <option value = "Apparel"></option>
-                    <option value = "Books / School Supplies"></option>
-                    <option value = "Other"></option>
+        <!-- start form-->
+        <div style = "margin-top: 10%;">
+            <h1 class = "col-6 offset-3 text-center">Search the Lost and Found!</h1>
+
+            <form class = "col-4 offset-4">
+                <select name = "Category" class = "form-control dropdown col-4" id = "choose-category">
+                    <option value = "null">Category</option>
+                    <option value = "Clothing">Clothing</option>
+                    <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
+                    <option value = "Technology">Technology</option>
+                    <option value = "Books-School">Books / School</option>
+                    <option value = "WaterBottles">Water Bottles</option>
+                    <option value = "CreditCard-ID"> Credit Card / ID</option>
+                    <option value = "Wallet-Purse"> Wallet / Purse</option>
+                    <option value = "Misc">Miscellaneous</option>
                 </select>    
                 
-                <input name = "searchBar" type = "text" placeholder = "Search" class = "form-control">
+                <input name = "searchBar" type = "text" placeholder = "Search" class = "form-control text-input col-8" >
                 
+                <button type = "submit" class = "btn btn-success form-control col-4" id = "submit-search">Go!</button>
             </form>
         </div>
-        
+        <!--end form-->
     
     </div>
 
