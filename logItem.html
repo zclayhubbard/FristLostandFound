@@ -22,12 +22,12 @@
         
         </div>    
         <!--end navbar-->
-    
-        <div class="col-6 offset-5" id = "form-container">
+  
+        <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-5" id = "form-container">
             <form>
                 <div class= "form-row">
                     <div class = "form-group col-6">
-                        <label for="wdName">WD Attendant Name</label>
+                        <label for="wdName">Logged By</label>
                         <input name = "wdName" type="text" class="form-control" placeholder="WD Attendant Name">
                     </div>
 
@@ -80,7 +80,9 @@
                     </div>
                 </div>
                 <div class= "form-row">
-                    <label class="col-5">Is there contact info on this item?</label>
+                    <div class="form-group col-5">
+                        <label>Is there contact info on this item?</label>
+                    </div>
                     <div class = "form-check form-check-inline col-1">
                         <input name = "yesContact" type="radio" class="form-check-input">
                         <label for="yesContact">Yes</label>
@@ -90,10 +92,35 @@
                         <label for="noContact">No</label>
                     </div>
                 </div>
-                <div class= "form-row"></div>
-                <div class= "form-row"></div>
-                <div class= "form-row"></div>
-                <div class= "form-row"></div>
+                <div class= "form-row form-group">
+                    <label class ="col-5" for = "attendantContact">Attendant who contacted them?</label>
+                    <div class = "col-4">
+                        <input name = "attendantContact" type = "text" class="form-control" placeholder="WD Attendant Name"> 
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <label class="col-5" for="contactInfo">Contact Info on Item:</label>
+                    <div class = "form-group col-4">
+                        <input name = "contactInfo" type = "text" class="form-control" placeholder="Contact Name Here"> 
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class="form-group col-5">
+                            <label>Is the item in the safe?</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "yesSafe" type="radio" class="form-check-input">
+                        <label for="yesSafe">Yes</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "noSafe" type="radio" class="form-check-input">
+                        <label for="noSafe">No</label>
+                    </div>
+                </div>
+                
+                <div class= "form-row">
+                    <button type="submit" class="btn btn-primary offset-10">Submit</button>
+                </div>
             </form>
 
 
