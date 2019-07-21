@@ -5,11 +5,13 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href= "gen.css">
+    <link rel = "stylesheet" type = "text/css" href = "logItem.css">
 </head>
 
 <body>
     
     <div class = 'container-fluid'>
+        <!--start navbar-->
         <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
             <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
             <div class='navbar-nav'>
@@ -19,8 +21,110 @@
             </div>
         
         </div>    
+        <!--end navbar-->
     
-    
+        <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-5" id = "form-container">
+            <form>
+                <div class= "form-row">
+                    <div class = "form-group col-6">
+                        <label for="wdName">Logged By</label>
+                        <input name = "wdName" type="text" class="form-control" placeholder="WD Attendant Name">
+                    </div>
+
+                    <div class = "form-group col-4">
+                        <label for="date">Date</label>
+                        <input name = "date" type="date" class="form-control">
+                    </div>
+
+                    <div class = "form-group col-2">
+                        <label for="time">Time</label>
+                        <input name = "time" type="time" class="form-control">
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class = "form-group col-4">
+                        <label for="category">Category</label>
+                        <select name = "category" class = "form-control">
+                            <option value = "null">Choose...</option>
+                            <option value = "Clothing">Clothing</option>
+                            <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
+                            <option value = "Technology">Technology</option>
+                            <option value = "Books-School">Books / School</option>
+                            <option value = "WaterBottles">Water Bottles</option>
+                            <option value = "CreditCard-ID"> Credit Card / ID</option>
+                            <option value = "Wallet-Purse"> Wallet / Purse</option>
+                            <option value = "Misc">Miscellaneous</option>
+                        </select>
+                    </div>
+
+                    <div class = "form-group col-4">
+                        <label for="brand">Brand</label>
+                        <input name = "brand" type="text" class="form-control">
+                    </div>
+
+                    <div class = "form-group col-4">
+                        <label for="color">Color</label>
+                        <input name = "time" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class = "form-group col-8">
+                        <label for="locationFound">Location Found</label>
+                        <input name = "locationFound" type="text" class="form-control" placeholder="Location Found">
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class = "form-group col-12">
+                        <label for="description">Description</label>
+                        <textarea name = "description" class="form-control" placeholder="Description"></textarea> 
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class="form-group col-5">
+                        <label>Is there contact info on this item?</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "yesContact" type="radio" class="form-check-input">
+                        <label for="yesContact">Yes</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "noContact" type="radio" class="form-check-input">
+                        <label for="noContact">No</label>
+                    </div>
+                </div>
+                <div class= "form-row form-group">
+                    <label class ="col-5" for = "attendantContact">Attendant who contacted them?</label>
+                    <div class = "col-4">
+                        <input name = "attendantContact" type = "text" class="form-control" placeholder="WD Attendant Name"> 
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <label class="col-5" for="contactInfo">Contact Info on Item:</label>
+                    <div class = "form-group col-4">
+                        <input name = "contactInfo" type = "text" class="form-control" placeholder="Contact Name Here"> 
+                    </div>
+                </div>
+                <div class= "form-row">
+                    <div class="form-group col-5">
+                            <label>Is the item in the safe?</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "yesSafe" type="radio" class="form-check-input">
+                        <label for="yesSafe">Yes</label>
+                    </div>
+                    <div class = "form-check form-check-inline col-1">
+                        <input name = "noSafe" type="radio" class="form-check-input">
+                        <label for="noSafe">No</label>
+                    </div>
+                </div>
+                
+                <div class= "form-row">
+                    <button type="submit" class="btn btn-primary offset-10">Submit</button>
+                </div>
+            </form>
+
+
+        </div>
     
     </div>
 
