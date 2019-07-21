@@ -1,5 +1,5 @@
 body {
-    background-color: #e9eeef
+    background-color: #ebebeb;
 }
 
 .container-fluid{
@@ -7,7 +7,8 @@ body {
 }
 
 .navbar {
-    background-color: #ff8f00
+    background-color: #ff8f00;
+    /* border: 3px solid red; */
 }
 
 .text-center {
