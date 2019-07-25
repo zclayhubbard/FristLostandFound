@@ -1,8 +1,8 @@
 #form-container {
     background-color: #E9F4FC;
-    height: 100%;
+    min-height: 100%;
     box-shadow: 4px 4px 20px #cbcdd1;
     padding-top: 10px;
-    /* border: 3px solid black */
-
+    /* border: 3px solid black; */
+    z-index: -1;
 }
