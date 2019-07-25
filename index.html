@@ -24,12 +24,12 @@
         <!--end navbar-->
     
         <!-- start form-->
-        <div style = "margin-top: 10%;" class="row">
+        <div style = "margin-top: 10%;">
             <h1 class = "col-6 offset-3 text-center">Search the Lost and Found!</h1>
 
             <form class = "col-4 offset-4">
                 <select name = "Category" class = "form-control col-4" id = "choose-category">
-                    <option value = "null">Category</option>
+                    <option value = "All">All</option>
                     <option value = "Clothing">Clothing</option>
                     <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
                     <option value = "Technology">Technology</option>
@@ -41,6 +41,8 @@
                 </select>    
                 
                 <input name = "searchBar" type = "text" placeholder = "Search" class = "form-control text-input col-8" >
+                
+                <a href="#">View Full Log</a>
                 
                 <button type = "submit" class = "btn btn-success form-control col-4" id = "submit-search">Go!</button>
             </form>
