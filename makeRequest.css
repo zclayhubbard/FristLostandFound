@@ -3,7 +3,7 @@
     height: 100%;
     box-shadow: 4px 4px 20px #cbcdd1;
     padding-top: 10px;
-    z-index: -1;
+    /* z-index: -1; */
     /* border: 3px solid black */
 
 }

@@ -2,6 +2,36 @@
 <html>
 
 <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".makeAppear").hide(.5);
+
+            
+            $("input[name='contact']").click(function(){
+                var contactQuestion = $("input[name='contact']:checked").val();
+                // alert(contactQuestion);
+
+                if(contactQuestion == "Yes"){
+                    // alert("and it appears!");
+                    $(".makeAppear").show(5);
+                    // $(".makeAppear").css("display", "grid");
+                }
+                else {
+                    // alert("get outta here");
+                    $(".makeAppear").hide(5);
+                }
+
+            });
+
+            
+
+        });
+
+
+    </script>
+
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href= "gen.css">
@@ -85,23 +115,23 @@
                         <label>Is there contact info on this item?</label>
                     </div>
                     <div class = "form-check form-check-inline col-1">
-                        <input name = "yesContact" type="radio" class="form-check-input">
+                        <input name = "contact" type="radio" class="form-check-input" value="Yes">
                         <label for="yesContact">Yes</label>
                     </div>
                     <div class = "form-check form-check-inline col-1">
-                        <input name = "noContact" type="radio" class="form-check-input">
+                        <input name = "contact" type="radio" class="form-check-input" value="No">
                         <label for="noContact">No</label>
                     </div>
                 </div>
-                <div class= "form-row form-group">
-                    <label class ="col-5" for = "attendantContact">Attendant who contacted them?</label>
-                    <div class = "col-4">
+                <div class= "form-group row makeAppear">
+                    <label class ="col-5 col-form-label" for = "attendantContact">Attendant who contacted them?</label>
+                    <div class = "col-6">
                         <input name = "attendantContact" type = "text" class="form-control" placeholder="WD Attendant Name"> 
                     </div>
                 </div>
-                <div class= "form-row">
-                    <label class="col-5" for="contactInfo">Contact Info on Item:</label>
-                    <div class = "form-group col-4">
+                <div class= "form-group row makeAppear">
+                    <label class="col-5 col-form-label" for="contactInfo">Contact Info on Item:</label>
+                    <div class = "col-6">
                         <input name = "contactInfo" type = "text" class="form-control" placeholder="Contact Name Here"> 
                     </div>
                 </div>
@@ -110,11 +140,11 @@
                             <label>Is the item in the safe?</label>
                     </div>
                     <div class = "form-check form-check-inline col-1">
-                        <input name = "yesSafe" type="radio" class="form-check-input">
+                        <input name = "safe" type="radio" class="form-check-input" value="Yes">
                         <label for="yesSafe">Yes</label>
                     </div>
                     <div class = "form-check form-check-inline col-1">
-                        <input name = "noSafe" type="radio" class="form-check-input">
+                        <input name = "safe" type="radio" class="form-check-input" value="No">
                         <label for="noSafe">No</label>
                     </div>
                 </div>
@@ -122,16 +152,19 @@
                 <div class= "form-row">
                     <button type="submit" class="btn btn-primary offset-10">Submit</button>
                 </div>
+
+                
             </form>
 
 
         </div>
     
+        <footer>
+                <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h3>
+            </footer>
     </div>
 
-    <footer>
-        <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h3>
-    </footer>
+    
 
     
 
