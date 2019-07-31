@@ -1,3 +1,8 @@
+body {
+    background-image: url("frist-photo.jpg");
+    background-size: cover;
+}
+
 #choose-category {
     float:left
 }
