@@ -21,94 +21,106 @@
         
         </div>    
     
-    
-        <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-3" id = "form-container">
-            <h3 style="text-align: center">Make a Lost Item Request!</h3>
-            <form>
-                <div class= "form-row">
-                    <div class = "form-group col-6">
-                        <label for="wdName">Logged By</label>
-                        <input name = "wdName" type="text" class="form-control" placeholder="WD Attendant Name">
+        <div class="row mx-0" style="min-height:100%">
+
+            <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-1" id = "form-container">
+                <h3 style="text-align: center">Make a Lost Item Request!</h3>
+                <form>
+                    <div class= "form-row">
+                        <div class = "form-group col-6">
+                            <label for="wdName">Logged By</label>
+                            <input name = "wdName" type="text" class="form-control" placeholder="WD Attendant Name">
+                        </div>
+
+                        <div class = "form-group col-6">
+                            <label for="date">Date</label>
+                            <input name = "date" type="date" class="form-control">
+                        </div>
+                        
+                    </div>
+                    <div class= "form-row">
+                        <div class = "form-group col-6">
+                            <label for="patronName">Patron Name</label>
+                            <input name = "patronName" type="text" class="form-control" placeholder="Patron Name">
+                        </div>
+
+                        <div class = "form-group col-6">
+                            <label for="patronContact">Patron Contact Info</label>
+                            <input name = "patronContact" type="text" class="form-control" placeholder="Patron Contact Info">
+                        </div>
+                        
                     </div>
 
-                    <div class = "form-group col-6">
-                        <label for="date">Date</label>
-                        <input name = "date" type="date" class="form-control">
+                    <div class= "form-row">
+                        <div class="form-group col-4">
+                            <label for="dateLost">Date Lost</label>
+                            <input name="dateLost" type="date" class="form-control">
+                        </div>
+
+                        <div class = "form-group col-8">
+                            <label for="locationFound">Location Found</label>
+                            <input name = "locationFound" type="text" class="form-control" placeholder="Location Found">
+                        </div>
+                    </div>
+
+                    <div class= "form-row">
+                        <div class = "form-group col-4">
+                            <label for="category">Category</label>
+                            <select name = "category" class = "form-control">
+                                <option value = "null">Choose...</option>
+                                <option value = "Clothing">Clothing</option>
+                                <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
+                                <option value = "Technology">Technology</option>
+                                <option value = "Books-School">Books / School</option>
+                                <option value = "WaterBottles">Water Bottles</option>
+                                <option value = "CreditCard-ID"> Credit Card / ID</option>
+                                <option value = "Wallet-Purse"> Wallet / Purse</option>
+                                <option value = "Misc">Miscellaneous</option>
+                            </select>
+                        </div>
+
+                        <div class = "form-group col-4">
+                            <label for="brand">Brand</label>
+                            <input name = "brand" type="text" class="form-control">
+                        </div>
+
+                        <div class = "form-group col-4">
+                            <label for="color">Color</label>
+                            <input name = "time" type="text" class="form-control">
+                        </div>
                     </div>
                     
-                </div>
-                <div class= "form-row">
-                    <div class = "form-group col-6">
-                        <label for="patronName">Patron Name</label>
-                        <input name = "patronName" type="text" class="form-control" placeholder="Patron Name">
-                    </div>
-
-                    <div class = "form-group col-6">
-                        <label for="patronContact">Patron Contact Info</label>
-                        <input name = "patronContact" type="text" class="form-control" placeholder="Patron Contact Info">
+                    <div class= "form-row">
+                        <div class = "form-group col-12">
+                            <label for="description">Description</label>
+                            <textarea name = "description" class="form-control" placeholder="Description"></textarea> 
+                        </div>
                     </div>
                     
-                </div>
-
-                <div class= "form-row">
-                    <div class="form-group col-4">
-                        <label for="dateLost">Date Lost</label>
-                        <input name="dateLost" type="date" class="form-control">
+                    
+                    <div class= "form-row">
+                        <button type="submit" class="btn btn-primary offset-10">Submit</button>
                     </div>
+                </form>
 
-                    <div class = "form-group col-8">
-                        <label for="locationFound">Location Found</label>
-                        <input name = "locationFound" type="text" class="form-control" placeholder="Location Found">
-                    </div>
-                </div>
 
-                <div class= "form-row">
-                    <div class = "form-group col-4">
-                        <label for="category">Category</label>
-                        <select name = "category" class = "form-control">
-                            <option value = "null">Choose...</option>
-                            <option value = "Clothing">Clothing</option>
-                            <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
-                            <option value = "Technology">Technology</option>
-                            <option value = "Books-School">Books / School</option>
-                            <option value = "WaterBottles">Water Bottles</option>
-                            <option value = "CreditCard-ID"> Credit Card / ID</option>
-                            <option value = "Wallet-Purse"> Wallet / Purse</option>
-                            <option value = "Misc">Miscellaneous</option>
-                        </select>
-                    </div>
+            </div>
+ 
 
-                    <div class = "form-group col-4">
-                        <label for="brand">Brand</label>
-                        <input name = "brand" type="text" class="form-control">
-                    </div>
-
-                    <div class = "form-group col-4">
-                        <label for="color">Color</label>
-                        <input name = "time" type="text" class="form-control">
-                    </div>
-                </div>
-                
-                <div class= "form-row">
-                    <div class = "form-group col-12">
-                        <label for="description">Description</label>
-                        <textarea name = "description" class="form-control" placeholder="Description"></textarea> 
-                    </div>
-                </div>
-                
-                
-                <div class= "form-row">
-                    <button type="submit" class="btn btn-primary offset-10">Submit</button>
-                </div>
-            </form>
-
+            <div class="col-md-3 offset-md-2 px-0 py-1" style="width:100%">
+                <img src="https://img3.stockfresh.com/files/l/leonidtit/m/36/3624693_stock-photo-mountain-landscape.jpg">
+                <img src="https://media.istockphoto.com/photos/candy-skies-picture-id511675552?k=6&m=511675552&s=612x612&w=0&h=yOryDNUpEWly_McZgQwE_d57tqGVvUrzE_NLpvIPkCk=">
+                <img src="https://media.istockphoto.com/photos/summer-landscape-picture-id585326172?k=6&m=585326172&s=612x612&w=0&h=gfxVSB_uyTwXVzlYxF5U282cGqRvZR7JkjEBKVxTRHU=">
+            </div>
 
         </div>
- 
+
         <footer>
                 <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h3>
             </footer>
 
+        
+    
 
     
     </div>
