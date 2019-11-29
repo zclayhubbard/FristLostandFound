@@ -8,6 +8,11 @@ from flask import render_template
 
 app = Flask(__name__, template_folder='.')
 
+@app.route('/')
+def index():
+    response = make_response("index.html")
+    return response
+
 
 # -----------------------------------------------------------------------
 if __name__ == '__main__':
