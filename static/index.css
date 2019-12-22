@@ -1,0 +1,20 @@
+body {
+    background-image: url("static/frist-photo.jpg");
+    background-size: cover;
+}
+
+#choose-category {
+    float:left
+}
+
+#submit-search {
+    float:right;
+    margin-top: 2%;
+    border: 1.5px solid white;
+}
+
+footer {
+    position:absolute;
+    bottom: 0;
+    width:100%;
+}
