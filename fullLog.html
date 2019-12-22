@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='gen.css') }}">
+    <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='fullLog.css') }}">
+</head>
+
+<body>
+    
+    <div class = 'container-fluid'>
+        
+        <!--start navbar -->
+        <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
+            <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
+            <div class='navbar-nav'>
+                <a class = 'nav-item nav-link active' href = 'index'><h3>Search the Log</h3></a>
+                <a class = 'nav-item nav-link' href = 'makeRequest'><h3>Make a Request</h3></a>
+                <a class = 'nav-item nav-link' href = 'logItem'><h3>Log an Item</h3></a>
+            </div>
+        </div>    
+        <!--end navbar-->
+        
+        <table>
+            <thead>
+                <tr>
+                    <th scope='col'>Date</th>
+                    <th scope='col'>Time</th>
+                    <th scope='col'>Logged By</th>
+                    <th scope='col'>Category</th>
+                    <th scope='col'>Brand</th>
+                    <th scope='col'>Color</th>
+                    <th scope='col'>Location Found</th>
+                    <th scope='col'>Description</th>
+                    <th scope='col'>Contact Info</th>
+                </tr>
+            </thead>
+            
+            {% for item in items: %}
+            <tr>
+                <td>{{item.getDt()}}</td>
+                <td>{{item.getTm()}}</td>
+                <td>{{item.getWd()}}</td>
+                <td>{{item.getCat()}}</td>
+                <td>{{item.getBrd()}}</td>
+                <td>{{item.getClr()}}</td>
+                <td>{{item.getLoc()}}</td>
+                <td>{{item.getDesc()}}</td>
+                <td>{{item.getCont()}}</td>
+            </tr>
+            {%endfor%}
+
+        </table>
+
+        <footer class="footer">
+            <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h4>
+        </footer>
+    
+
+
+    </div>
+
+    
+    
+
+    
+
+
+</body>
+
+</html>
