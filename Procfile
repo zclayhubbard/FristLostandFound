@@ -1,1 +1,1 @@
-web: gunicorn fristlostfound:app
+web: gunicorn controller:app
