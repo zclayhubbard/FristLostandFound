@@ -133,15 +133,17 @@
                         </div>
                     </div>
                     <div class= "form-group row makeAppear">
-                        <label class ="col-5 col-form-label" for = "attendantContact">Attendant who contacted them?</label>
-                        <div class = "col-6">
-                            <input name = "attendantContact" type = "text" class="form-control" placeholder="WD Attendant Name"> 
-                        </div>
-                    </div>
-                    <div class= "form-group row makeAppear">
                         <label class="col-5 col-form-label" for="contactInfo">Contact Info on Item:</label>
                         <div class = "col-6">
-                            <input name = "contactInfo" type = "text" class="form-control" placeholder="Contact Name Here"> 
+                            <input name = "contactInfo" type = "text" class="form-control" placeholder="Contact Email / Phone"> 
+                        </div>
+                    </div>
+                    <div class= "form-row makeAppear">
+                        <div class="form-group col-5">
+                                <label>Please check this box to confirm that you contacted the patron</label>
+                        </div>
+                        <div class = "form-check form-check-inline col-1">
+                            <input name = "safe" type="checkbox" class="form-check-input" value="Yes">
                         </div>
                     </div>
                     <div class= "form-row">
@@ -149,11 +151,11 @@
                                 <label>Is the item in the safe?</label>
                         </div>
                         <div class = "form-check form-check-inline col-1">
-                            <input name = "safe" type="radio" class="form-check-input" value="Yes">
+                            <input name = "safe" type="radio" class="form-check-input" value="True">
                             <label for="yesSafe">Yes</label>
                         </div>
                         <div class = "form-check form-check-inline col-1">
-                            <input name = "safe" type="radio" class="form-check-input" value="No">
+                            <input name = "safe" type="radio" class="form-check-input" value="False">
                             <label for="noSafe">No</label>
                         </div>
                     </div>

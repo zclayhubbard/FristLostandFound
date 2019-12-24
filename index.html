@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='gen.css') }}">
     <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='index.css') }}">
+    <style>
+        body {
+            background-image: url_for('static',filename='frist-photo.jpg');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,7 +40,7 @@
                     <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
                     <option value = "Technology">Technology</option>
                     <option value = "Books-School">Books / School</option>
-                    <option value = "WaterBottles">Water Bottles</option>
+                    <option value = "WaterBottles">Water Bottles / Umbrellas</option>
                     <option value = "CreditCard-ID"> Credit Card / ID</option>
                     <option value = "Wallet-Purse"> Wallet / Purse</option>
                     <option value = "Misc">Miscellaneous</option>
@@ -56,12 +62,6 @@
 
 
     </div>
-
-    
-    
-
-    
-
 
 </body>
 

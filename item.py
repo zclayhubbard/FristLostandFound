@@ -1,5 +1,5 @@
 class Item (object):
-    def __init__(self, Id, wdAtt, date, time, catg, brand, color, location, desc, contact):
+    def __init__(self, wdAtt, date, time, catg, brand, color, location, desc, contact, inSafe, Id):
         self.__id = Id
         self.__wdAtt = wdAtt
         self.__date = date
@@ -10,6 +10,7 @@ class Item (object):
         self.__location = location
         self.__desc = desc
         self.__contact = contact
+        self.__inSafe = inSafe
 
     def getId(self):
         return self.__id
@@ -18,13 +19,44 @@ class Item (object):
         return self.__wdAtt
 
     def getDt(self):
-        return self.__date
+        y, m, d = self.__date.split("-")
+        return m + "/" + d + "/" + y
 
     def getTm(self):
-        return self.__time
+        h, m, s = self.__time.split(":")
+        hour = int(h)
+
+        if hour < 12:
+            ampm = "AM"
+        else:
+            ampm = "PM"
+
+        if hour is 0:
+            hour = 12
+        elif hour > 12:
+            hour = hour - 12
+
+        return str(hour) + ":" + m + " " + ampm
 
     def getCat(self):
-        return self.__catg
+        catMap = {
+            "Clothing" : "Clothing",
+            "JewelAccess" : "Jewelry/Accessories",
+            "Tech" : "Technology",
+            "BookSchool" : "Books/School",
+            "BottleUmbrella" : "Water Bottles/Umbrellas",
+            "CreditCardID" : "Credit Card/ID",
+            "WalletPurse" : "Wallet/Purse",
+            "Misc" : "Miscellaneous"
+        }
+
+        cats = self.__catg.split()
+
+        r = ""
+        for c in cats:
+            r = r + catMap[c] + ", "
+
+        return r[:-2]
     
     def getBrd(self):
         return self.__brand
@@ -40,3 +72,10 @@ class Item (object):
     
     def getCont(self):
         return self.__contact
+
+    def getInSafe(self):
+
+        if self.__inSafe == 'True':
+            return "Yes"
+        else:
+            return "No"
