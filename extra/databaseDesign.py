@@ -36,7 +36,7 @@ data = [
     ["Atarah","2019/12/17","7:00","WalletPurse","Brown","","Lot21","Leather wallet belonging to Amir Dehghani", "", True],
     ["Edwin", "2019/12/17","5:55","Misc","green","toyota","west tv","key chain w toyota key and 2 extra keys w green rubber protectors", "", True],
     ["Atarah","2019/12/18","8:48","Clothing","Black","Princeton","","Princeton Votes 100 Baseball hat", "", False],
-    ["Atarah","2019/12/18", "8:49","BottleUmbrella`4lo5", "Blue","Contigo", "", "Blue (teal) waterbottle", "", False],	
+    ["Atarah","2019/12/18", "8:49","BottleUmbrella", "Blue","Contigo", "", "Blue (teal) waterbottle", "", False],	
     ["Faith","2019/12/23","9:00","Clothing","blue","ZT","women's center","blue fleece sweater", "", False]
     ]
 

@@ -54,7 +54,7 @@ def loadLogPage():
 @app.route('/fullLog')
 def loadFullLog():
     items = getItems()
-    html = render_template('fullLog.html', items=items)
+    html = render_template('log.html', items=items)
     response = make_response(html)
     return response
 
