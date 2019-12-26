@@ -40,8 +40,10 @@ data = [
     ["Faith","2019/12/23","9:00","Clothing","blue","ZT","women's center","blue fleece sweater", "", False]
     ]
 
+
 # WDAttendant, Date, Time, Category, Brand, Color, Location, Description, Contact, inSafe, ID
 stmt = "INSERT INTO lostitems VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, DEFAULT)"
+
 
 for i in range(len(data)):
     currRow = data[i]
