@@ -8,7 +8,7 @@
     <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='index.css') }}">
     <style>
         body {
-            background-image: url_for('static',filename='frist-photo.jpg');
+            background-image: url_for('static', filename='frist-photo.jpg');
             background-size: cover;
         }
     </style>
@@ -20,7 +20,7 @@
         
         <!--start navbar -->
         <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
-            <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
+            <a href="fullLog" class = 'navbar-brand' style='color:black'><h1>Frist Lost and Found</h1></a>
             <div class='navbar-nav'>
                 <a class = 'nav-item nav-link active' href = '#'><h3>Search the Log</h3></a>
                 <a class = 'nav-item nav-link' href = 'makeRequest'><h3>Make a Request</h3></a>

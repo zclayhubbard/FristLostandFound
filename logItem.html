@@ -43,7 +43,7 @@
     <div class = 'container-fluid'>
         <!--start navbar-->
         <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
-            <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
+            <a href='fullLog' class = 'navbar-brand' style='color:black'><h1>Frist Lost and Found</h1></a>
             <div class='navbar-nav'>
                 <a class = 'nav-item nav-link' href = 'index'><h3>Search the Log</h3></a>
                 <a class = 'nav-item nav-link' href = 'makeRequest'><h3>Make a Request</h3></a>
@@ -64,7 +64,7 @@
 
             <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-2" id = "form-container">
                 <h3 style="text-align: center">Log an Item!</h3>
-                <form>
+                <form action="submitItem">
                     <div class= "form-row">
                         <div class = "form-group col-6">
                             <label for="wdName">Logged By</label>
@@ -87,12 +87,12 @@
                             <select name = "category" class = "form-control">
                                 <option value = "null">Choose...</option>
                                 <option value = "Clothing">Clothing</option>
-                                <option value = "Jewelry-Accessories ">Jewelry / Accesories</option>
-                                <option value = "Technology">Technology</option>
-                                <option value = "Books-School">Books / School</option>
-                                <option value = "WaterBottles">Water Bottles / Umbrellas</option>
-                                <option value = "CreditCard-ID"> Credit Card / ID</option>
-                                <option value = "Wallet-Purse"> Wallet / Purse</option>
+                                <option value = "JewelAccess">Jewelry / Accesories</option>
+                                <option value = "Tech">Technology</option>
+                                <option value = "BookSchool">Books / School</option>
+                                <option value = "BottleUmbrella">Water Bottles / Umbrellas</option>
+                                <option value = "CreditCardID"> Credit Card / ID</option>
+                                <option value = "WalletPurse"> Wallet / Purse</option>
                                 <option value = "Misc">Miscellaneous</option>
                             </select>
                         </div>
@@ -104,7 +104,7 @@
 
                         <div class = "form-group col-4">
                             <label for="color">Color</label>
-                            <input name = "time" type="text" class="form-control">
+                            <input name = "color" type="text" class="form-control">
                         </div>
                     </div>
                     <div class= "form-row">
@@ -143,7 +143,7 @@
                                 <label>Please check this box to confirm that you contacted the patron</label>
                         </div>
                         <div class = "form-check form-check-inline col-1">
-                            <input name = "safe" type="checkbox" class="form-check-input" value="Yes">
+                            <input name = "verifyContact" type="checkbox" class="form-check-input" value="Verified">
                         </div>
                     </div>
                     <div class= "form-row">

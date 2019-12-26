@@ -1,7 +1,7 @@
 from sys import argv, exit, stderr
 from flask import Flask, request, make_response, redirect, url_for
 from flask import render_template
-from database import getItems
+from database import *
 from item import Item
 
 app = Flask(__name__, template_folder='.')
@@ -41,7 +41,8 @@ def loadLogPage():
     response = make_response(html)
     return response
 
-# def submitItem():
+@app.route('/submitItem')
+def submitItem():
     # triggered when submitting item form
     # first takes key terms and searches requests table for any pings
         # this is gonna be the trickiest part, because we don't want it to return every request ykno
@@ -50,6 +51,34 @@ def loadLogPage():
         # this could probably be a separate page that's set up just like fullLog but with a button to continue at the bottom
         # would need to also handle how you get out of that page, that's another two events but we'll come back to that
     # if we don't get any good results, then we just update the lostitems table and keep it moving 
+
+    # WDAttendant, Date, Time, Category, Color, Brand, Location, Description, Contact, inSafe, ID 
+
+    # first round (Basic insertion):
+    # get args
+    loggedby = request.args.get("wdName")
+    date = request.args.get("date")
+    time = request.args.get("time")
+    category = request.args.get("category")
+    brand = request.args.get("brand")
+    color = request.args.get("color")
+    location = request.args.get("locationFound")
+    desc = request.args.get("description")
+    contact = request.args.get("contactInfo") # if empty set to None (?)
+    insafe = request.args.get("safe")
+
+    # clean info
+
+    args = [loggedby, date, time, category, color, brand, location, desc, contact, insafe]
+    errorsuccess = addItem(args)
+
+    html = render_template('itemErrorSuccess.html', errorsuccess=errorsuccess)
+    response = make_response(html)
+    return response
+        
+        
+
+    
 
 @app.route('/fullLog')
 def loadFullLog():

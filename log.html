@@ -16,46 +16,47 @@
         <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
             <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
             <div class='navbar-nav'>
-                <a class = 'nav-item nav-link active' href = 'index'><h3>Search the Log</h3></a>
+                <a class = 'nav-item nav-link' href = 'index'><h3>Search the Log</h3></a>
                 <a class = 'nav-item nav-link' href = 'makeRequest'><h3>Make a Request</h3></a>
                 <a class = 'nav-item nav-link' href = 'logItem'><h3>Log an Item</h3></a>
             </div>
         </div>    
         <!--end navbar-->
         
-        <table class=table>
-            <thead>
+        <div class="table-container table-responsive-lg">
+            <table class="table table-striped table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope='col'>Date</th>
+                        <th scope='col'>Time</th>
+                        <th scope='col'>Logged By</th>
+                        <th scope='col'>Category</th>
+                        <th scope='col'>Brand</th>
+                        <th scope='col'>Color</th>
+                        <th scope='col'>Location Found</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Contact Info</th>
+                        <th scope='col'>In the Safe?</th>
+                    </tr>
+                </thead>
+                
+                {% for item in items: %}
                 <tr>
-                    <th scope='col'>Date</th>
-                    <th scope='col'>Time</th>
-                    <th scope='col'>Logged By</th>
-                    <th scope='col'>Category</th>
-                    <th scope='col'>Brand</th>
-                    <th scope='col'>Color</th>
-                    <th scope='col'>Location Found</th>
-                    <th scope='col'>Description</th>
-                    <th scope='col'>Contact Info</th>
-                    <th scope='col'>In the Safe?</th>
+                    <td>{{item.getDt()}}</td>
+                    <td>{{item.getTm()}}</td>
+                    <td>{{item.getLogBy()}}</td>
+                    <td>{{item.getCat()}}</td>
+                    <td>{{item.getClr()}}</td>
+                    <td>{{item.getBrd()}}</td>
+                    <td>{{item.getLoc()}}</td>
+                    <td>{{item.getDesc()}}</td>
+                    <td>{{item.getCont()}}</td>
+                    <td>{{item.getInSafe()}}</td>
                 </tr>
-            </thead>
-            
-            {% for item in items: %}
-            <tr>
-                <td>{{item.getDt()}}</td>
-                <td>{{item.getTm()}}</td>
-                <td>{{item.getLogBy()}}</td>
-                <td>{{item.getBrd()}}</td>
-                <td>{{item.getCat()}}</td>
-                <td>{{item.getClr()}}</td>
-                <td>{{item.getLoc()}}</td>
-                <td>{{item.getDesc()}}</td>
-                <td>{{item.getCont()}}</td>
-                <td>{{item.getInSafe()}}</td>
-            </tr>
-            {%endfor%}
+                {%endfor%}
 
-        </table>
-
+            </table>
+        </div>
         <footer class="footer">
             <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h4>
         </footer>
