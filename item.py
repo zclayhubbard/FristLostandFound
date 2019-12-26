@@ -16,7 +16,7 @@ class Item (object):
         return self.__id
 
     def getLogBy(self):
-        return self.__LogBy
+        return self.__logBy
 
     def getDt(self):
         y, m, d = self.__date.split("-")
