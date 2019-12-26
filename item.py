@@ -1,7 +1,7 @@
 class Item (object):
-    def __init__(self, wdAtt, date, time, catg, brand, color, location, desc, contact, inSafe, Id):
+    def __init__(self, logBy, date, time, catg, brand, color, location, desc, contact, inSafe, Id):
         self.__id = Id
-        self.__wdAtt = wdAtt
+        self.__logBy = logBy
         self.__date = date
         self.__time = time
         self.__catg = catg
@@ -15,8 +15,8 @@ class Item (object):
     def getId(self):
         return self.__id
 
-    def getWd(self):
-        return self.__wdAtt
+    def getLogBy(self):
+        return self.__LogBy
 
     def getDt(self):
         y, m, d = self.__date.split("-")

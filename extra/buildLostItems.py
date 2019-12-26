@@ -14,7 +14,6 @@ cursor = conn.cursor()
 # then go to terminal, have it just print what's in it to test
 # and then we can move on to getting it to display that info on the fullLog page correctly!
 
-
 #[Date, Time, WD Attendant, Color, Brand, Where Found, Item Description, Contact info, In the safe?]
 
 data = [
@@ -40,10 +39,8 @@ data = [
     ["Faith","2019/12/23","9:00","Clothing","blue","ZT","women's center","blue fleece sweater", "", False]
     ]
 
-
-# WDAttendant, Date, Time, Category, Brand, Color, Location, Description, Contact, inSafe, ID
+# WDAttendant, Date, Time, Category, Color, Brand, Location, Description, Contact, inSafe, ID
 stmt = "INSERT INTO lostitems VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, DEFAULT)"
-
 
 for i in range(len(data)):
     currRow = data[i]
