@@ -40,6 +40,7 @@ class Item (object):
 
     def getCat(self):
         catMap = {
+            "null" : None,
             "Clothing" : "Clothing",
             "JewelAccess" : "Jewelry/Accessories",
             "Tech" : "Technology",

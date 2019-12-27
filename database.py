@@ -54,3 +54,22 @@ def addItem(args):
     conn.close()
 
     return "Item logged successfully!"
+
+def addRequest(args):
+    # prepare statements as needed
+    s = "INSERT INTO requests VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, DEFAULT)"
+
+    # insert into lostitems table
+    conn = psycopg2.connect(credentials)
+    cursor = conn.cursor()
+    
+    try:
+        cursor.execute(s, args)
+        conn.commit()
+    except Exception as e:
+        return str(e)
+
+    cursor.close()
+    conn.close()
+
+    return "Request logged successfully!"    

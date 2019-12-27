@@ -24,7 +24,8 @@ def loadRequestPage():
     response = make_response(html)
     return response
 
-# def submitRequest():
+@app.route('/submitRequest')
+def submitRequest():
     # triggered when submitting request form
     # first takes key terms and searches lostitems table for any pings
         # this is gonna be the trickiest part, because we don't want it to return every item ykno
@@ -33,6 +34,31 @@ def loadRequestPage():
         # this could probably be a separate page that's set up just like fullLog but with a button to continue at the bottom
         # would need to also handle how you get out of that page, that's another two events but we'll come back to that
     # if we don't get any good results, then we just update the requests table and keep it moving
+
+    # [LoggedBy, Date, PatronName, PatronContact, DateLost, LocationLost, Category, Brand, Color, Description, ID],
+
+
+    # first round (Basic insertion):
+    # get args
+    loggedby = request.args.get("wdName")
+    date = request.args.get("date")
+    patronname = request.args.get("patronName")
+    patroncontact = request.args.get("patronContact")
+    datelost = request.args.get("dateLost")
+    locationlost = request.args.get("locationLost")
+    category = request.args.get("category")
+    brand = request.args.get("brand")
+    color = request.args.get("color") # if empty set to None (?)
+    desc = request.args.get("descriprion")
+
+    # clean info
+
+    args = [loggedby, date, patronname, patroncontact, datelost, locationlost, category, brand, color, desc]
+    errorsuccess = addRequest(args)
+
+    html = render_template('requestErrorSuccess.html', errorsuccess=errorsuccess)
+    response = make_response(html)
+    return response
 
 
 @app.route('/logItem')
@@ -75,10 +101,6 @@ def submitItem():
     html = render_template('itemErrorSuccess.html', errorsuccess=errorsuccess)
     response = make_response(html)
     return response
-        
-        
-
-    
 
 @app.route('/fullLog')
 def loadFullLog():
