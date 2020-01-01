@@ -13,14 +13,23 @@ def index():
     response = make_response(html)
     return response
 
-# def search:
+@app.route('/search')
+def search():
     # triggered when you submit the search box on the landing page
     # takes cookies from search, queries database, gets rows of results
     # makes them into Item objects, renders the template with them and sends it back
+    c = request.args.get('category')
+    q = request.args.get('searchBar')
+
+    items = getItems(False, c, q)
+    html = render_template('log.html', items=items, query=q)
+    response = make_response(html)
+    return response
+
 
 @app.route('/makeRequest')
 def loadRequestPage():
-    html = render_template('makeRequest.html')
+    html = render_template('makeRequest.html', reqSubmitted=False, errorsuccess=None)
     response = make_response(html)
     return response
 
@@ -38,7 +47,6 @@ def submitRequest():
     # [LoggedBy, Date, PatronName, PatronContact, DateLost, LocationLost, Category, Brand, Color, Description, ID],
 
 
-    # first round (Basic insertion):
     # get args
     loggedby = request.args.get("wdName")
     date = request.args.get("date")
@@ -49,21 +57,31 @@ def submitRequest():
     category = request.args.get("category")
     brand = request.args.get("brand")
     color = request.args.get("color") # if empty set to None (?)
-    desc = request.args.get("descriprion")
+    desc = request.args.get("description")
 
     # clean info
 
     args = [loggedby, date, patronname, patroncontact, datelost, locationlost, category, brand, color, desc]
+    ############################ CROSS CHECK CALL ###############################################################
+    # uncomment below when it searches correctly / crossCheck page has the right buttons and shit 
+    # items = crossCheck("lostitems", "date", datelost)
+
+    # if len(items) > 0:
+    #     html = render_template('crossCheckResults.html', submitItem=False, submitRequest=True, items=items, requests=[])
+    #     response = make_response(html)
+    #     return response
+
+ 
     errorsuccess = addRequest(args)
 
-    html = render_template('requestErrorSuccess.html', errorsuccess=errorsuccess)
+    html = render_template('makeRequest.html', reqSubmitted=True, errorsuccess=errorsuccess)
     response = make_response(html)
     return response
 
 
 @app.route('/logItem')
 def loadLogPage():
-    html = render_template('logItem.html')
+    html = render_template('logItem.html', itemSubmitted=False, errorsuccess=None)
     response = make_response(html)
     return response
 
@@ -96,16 +114,26 @@ def submitItem():
     # clean info
 
     args = [loggedby, date, time, category, color, brand, location, desc, contact, insafe]
+
+    ############################ CROSS CHECK CALL ###############################################################
+    # uncomment below when it searches correctly / crossCheck page has the right buttons and shit 
+    # reqs = crossCheck("requests", "datelost", date)
+
+    # if len(reqs) > 0:
+    #     html = render_template('crossCheckResults.html', submitItem=True, submitRequest=False, items=[], requests=reqs)
+    #     response = make_response(html)
+    #     return response
+
     errorsuccess = addItem(args)
 
-    html = render_template('itemErrorSuccess.html', errorsuccess=errorsuccess)
+    html = render_template('logItem.html', itemSubmitted=True, errorsuccess=errorsuccess)
     response = make_response(html)
     return response
 
 @app.route('/fullLog')
 def loadFullLog():
     items = getItems()
-    html = render_template('log.html', items=items)
+    html = render_template('log.html', items=items, query=None)
     response = make_response(html)
     return response
 

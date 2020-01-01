@@ -63,6 +63,7 @@
 
 
             <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-2" id = "form-container">
+                {%if not itemSubmitted:%}
                 <h3 style="text-align: center">Log an Item!</h3>
                 <form action="submitItem">
                     <div class= "form-row">
@@ -163,17 +164,19 @@
                     <div class= "form-row">
                         <button type="submit" class="btn btn-primary offset-10">Submit</button>
                     </div>
-
-                    
                 </form>
 
+                {%else:%}
+                <h3 style="text-align: center">{{errorsuccess}}</h3>
+                <a href="fullLog" class="btn btn-outline-warning">View Log</a>
+                {%endif%}
 
             </div>
 
         </div>
     
         <footer class="footer">
-            <h4 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h4>
+            <h6 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h6>
         </footer>
     </div>
 

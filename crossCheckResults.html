@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='gen.css') }}">
+    <link rel = "stylesheet" type = "text/css" href= "{{ url_for('static',filename='crossCheck.css') }}">
+
+    <script>
+        // alert(0);
+
+        $(document).ready(function(){
+            $('#modal').on('show.bs.modal', function(event){
+            // alert(0);
+
+            var row =  $(event.relatedTarget);
+            var desc = row.data('reqdesc');
+            var patronName = row.data('name');
+            var patronCont = row.data('contact');
+
+            var modal = $(this);
+
+            modal.find("#reqDesc").text(""+ desc);
+            modal.find("#patronName").text(""+patronName);
+            modal.find("#patronContact").text(""+patronCont);
+
+            })
+        })
+        
+    
+    </script>
+
+
+</head>
+
+<body>
+    
+    <div class = 'container-fluid'>
+        
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="modalTitle">Title</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        {%if submitItem:%}
+                            <p>This lost item request was for <b id="reqDesc"></b>.</p>
+                            <p>Please contact the following patron to let them know their item may have been found:</p>
+                            <p class="center"><b id ="patronName"></b></p>
+                            <p class="center"><b id ="patronContact"></b></p>
+
+                        {%elif submitRequest:%}
+                            <p>This item is "<b id="itemDesc"></b>"".</p>
+                            <p>Please double check the basket and/or safe for this item, and return it to the patron!</p>
+                        {%endif%}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" href="/index">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--start navbar -->
+        <div class = 'navbar navbar-expand-md navbar-expand-lg justify-content-between navbar-dark'>
+            <a class = 'navbar-brand'><h1>Frist Lost and Found</h1></a>
+            <div class='navbar-nav'>
+                <a class = 'nav-item nav-link' href = 'index'><h3>Search the Log</h3></a>
+                <a class = 'nav-item nav-link' href = 'makeRequest'><h3>Make a Request</h3></a>
+                <a class = 'nav-item nav-link' href = 'logItem'><h3>Log an Item</h3></a>
+            </div>
+        </div>    
+        <!--end navbar-->
+        
+        <div class="table-container table-responsive-lg">
+            {%if submitItem:%}
+                <h3>The item you're trying to log sounds like it might match these requests:</h3>
+                <h5>Please confirm that this item doesn't match any of these requests. If it does, please click on the correct request and contact the patron!</h5>
+                
+                <table class="table table-striped table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope='col'>Date</th>
+                            <th scope='col'>Logged By</th>
+                            <th scope='col'>Date Lost</th>
+                            <th scope='col'>Location Lost</th>
+                            <th scope='col'>Category</th>
+                            <th scope='col'>Brand</th>
+                            <th scope='col'>Color</th>
+                            <th scope='col'>Description</th>
+                            <th scope='col'>Patron Name</th>
+                            <th scope='col'>Patron Contact</th>
+                        </tr>
+                    </thead>
+            {%elif submitRequest:%}
+                <h3>The request you're trying to log sounds like it might be for these items:</h3>
+                <h5>Please confirm that this request doesn't match any of these items. If it does, please click on the correct item and return it!</h5>
+
+                <table class="table table-striped table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope='col'>Date</th>
+                            <th scope='col'>Time</th>
+                            <th scope='col'>Logged By</th>
+                            <th scope='col'>Category</th>
+                            <th scope='col'>Brand</th>
+                            <th scope='col'>Color</th>
+                            <th scope='col'>Location Found</th>
+                            <th scope='col'>Description</th>
+                            <th scope='col'>Contact Info</th>
+                            <th scope='col'>In the Safe?</th>
+                        </tr>
+                    </thead>
+            {%endif%}
+                    <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modalTest"> Click here!</button> -->
+                
+                    {% for item in items: %}
+                    <tr data-toggle="modal" data-id="{{item.getId()}}" data-target="#modal">
+                        <td>{{item.getDt()}}</td>
+                        <td>{{item.getTm()}}</td>
+                        <td>{{item.getLogBy()}}</td>
+                        <td>{{item.getCat()}}</td>
+                        <td>{{item.getClr()}}</td>
+                        <td>{{item.getBrd()}}</td>
+                        <td>{{item.getLoc()}}</td>
+                        <td>{{item.getDesc()}}</td>
+                        <td>{{item.getCont()}}</td>
+                        <td>{{item.getInSafe()}}</td>
+                    </tr>
+                    {%endfor%}
+
+                    {% for req in requests: %}
+                    <tr data-toggle="modal" data-target="#modal" data-name="{{req.getPatName()}}" data-contact="{{req.getPatCont()}}" data-reqdesc= "{{req.getDesc()}}">
+                        <td>{{req.getDt()}}</td>
+                        <td>{{req.getLogBy()}}</td>
+                        <td>{{req.getDtLost()}}</td>
+                        <td>{{req.getLocLost()}}</td>
+                        <td>{{req.getCat()}}</td>
+                        <td>{{req.getBrd()}}</td>
+                        <td>{{req.getClr()}}</td>
+                        <td>{{req.getDesc()}}</td>
+                        <td>{{req.getPatName()}}</td>
+                        <td>{{req.getPatCont()}}</td>
+                    </tr>
+                    {%endfor%}
+
+                </table>
+                <button class="btn btn-warning">None of These are Right</button>
+        </div>
+
+        <footer class="footer">
+            <h6 style="text-align:center; padding-top: 20px" class="py-auto">Developed by Zyanne Clay-Hubbard (zifc@) '21</h6>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
